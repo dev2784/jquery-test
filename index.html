@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jquery test</title>
+    <link href="./style.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <section class="product">
+      <header>
+        <div class="container-fluid">
+          <div class="row align-item-center">
+            <div class="col-12 col-sm-2">
+              <a class="navbar-brand" href="#">Master Store</a>
+            </div>
+            <div class="col-6 col-sm-7">
+              <h4 class="title">Product list</h4>
+            </div>
+            <div class="col-6 col-sm-3">
+              <h4 class="sub-title">Kochuyag</h4>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="middle-part container-fluid">
+        <div class="row d-flex align-items-stretch">
+          <div class="col-2 side-nav">
+            <ul class="list-group">
+              <li class="list-group-item">An item</li>
+              <li class="list-group-item">A second item</li>
+              <li class="list-group-item">A third item</li>
+              <li class="list-group-item">A fourth item</li>
+              <li class="list-group-item">And a fifth one</li>
+            </ul>
+          </div>
+
+          <div class="col-12 col-sm-10">
+            <section class="component-part">
+              <div class="row">
+                <div class="col">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="card-top-bar d-flex justify-content-between">
+                        <div class="card-title">Product Information</div>
+                        <div class="card-title-action">
+                          <button type="button" class="btn btn-primary btn-sm">
+                            Add Products
+                          </button>
+                          <button type="button" class="btn btn-primary btn-sm">
+                            Import Products
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="table-top-panel d-flex justify-content-between row flex-column flex-sm-row justify-content-center justify-content-sm-between"
+                      >
+                        <div class="select-area mb-3 d-flex align-items-center col justify-content-center justify-content-sm-start">
+                          <select
+                            class="form-select"
+                            aria-label="records per page"
+                          >
+                            <option selected>10</option>
+                            <option value="1">25</option>
+                            <option value="2">50</option>
+                            <option value="3">100</option>
+                          </select>
+                          <label>records per page</label>
+                        </div>
+                        <div
+                          class="search-area d-flex flex-column flex-sm-row align-items-center col justify-content-end"
+                        >
+                          <label>Search:</label>
+                          <input
+                            type="text"
+                            aria-label="Search"
+                            class="form-control search-field"
+                          />
+                          <button type="button" class="btn btn-primary btn-md">
+                            Show / Hide Columns
+                          </button>
+                        </div>
+                        <div class="table-responsive table-parent">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th>
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    value=""
+                                    id="check-all"
+                                  />
+                                </th>
+
+                                <th>Product Id</th>
+
+                                <th>Product Name</th>
+
+                                <th>Variations</th>
+
+                                <th>Product Description</th>
+
+                                <th>Price</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody id="my-data">
+                              
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        var data = {
+          data: [
+            {
+              id: 'generic-product-1',
+              name: "Product 1",
+              variation: { color: "Black, Red", size: "Xl,L" },
+              description:
+                "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+              price: "450",
+              Characteristics: "Color,size",
+              img: "./download.png",
+              url: "https://www.google.com/",
+            },
+            {
+              id: 'generic-product-2',
+              name: "Product 2",
+              variation: { color: "Black, Red", size: "Xl,L" },
+              description:
+                "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+              price: "450",
+              Characteristics: "Color,size",
+              img: "./download.png",
+              url: "https://www.google.com/",
+            },
+            {
+              id: 'generic-product-3',
+              name: "Product 3",
+              variation: { color: "Black, Red", size: "Xl,L" },
+              description:
+                "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+              price: "450",
+              Characteristics: "Color,size",
+              img: "./download.png",
+              url: "https://www.google.com/",
+            },
+            {
+              id: 'generic-product-4',
+              name: "Product 4",
+              variation: { color: "Black, Red", size: "Xl,L" },
+              description:
+                "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+              price: "450",
+              Characteristics: "Color,size",
+              img: "./download.png",
+              url: "https://www.google.com/",
+            },
+            {
+              id: 'generic-product-5',
+              name: "Product 5",
+              variation: { color: "Black, Red", size: "Xl,L" },
+              description:
+                "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+              price: "450",
+              Characteristics: "Color,size",
+              img: "./download.png",
+              url: "https://www.google.com/",
+            },
+            {
+              id: 'generic-product-6',
+              name: "Product 6",
+              variation: { color: "Black, Red", size: "Xl,L" },
+              description:
+                "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+              price: "450",
+              Characteristics: "Color,size",
+              img: "./download.png",
+              url: "https://www.google.com/",
+            },
+            {
+              id: 'generic-product-7',
+              name: "Product 7",
+              variation: { color: "Black, Red", size: "Xl,L" },
+              description:
+                "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+              price: "450",
+              Characteristics: "Color,size",
+              img: "./download.png",
+              url: "https://www.google.com/",
+            },
+            {
+              id: 'generic-product-8',
+              name: "Product 8",
+              variation: { color: "Black, Red", size: "Xl,L" },
+              description:
+                "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+              price: "450",
+              Characteristics: "Color,size",
+              img: "./download.png",
+              url: "https://www.google.com/",
+            },
+          ],
+        };
+
+        $.each(data.data, function (key, value) {
+            var product = '';
+            product+= '<tr>';
+            product+= '<th><input class="form-check-input" type="checkbox" value="'+value.id+'" id="check-'+value.id+'" /></th>';
+            product+= '<td><span class="text-primary">'+value.id+'</span></td>';  
+            product+= '<td>'+value.name+'</td>'; 
+            product+= '<td>Color: '+value.variation.color+', size: '+value.variation.size+'</td>'; 
+            product+= '<td>'+value.description+'</td>';
+            product+= '<td>'+value.price+'</td>'; 
+            product+= '<td id="open-'+key+'" class="text-center open"><span class="open-btn">+</span></td>'; 
+            product+= '<td id="close-'+key+'" class="text-center close"><span class="close-btn">-</span></td>';              
+            product+= '</tr>';       
+            product+= '<tr class="hidden" id="expand-'+key+'">';                
+            product+= '<td colspan="6">';
+            product+= '<table class="table">';
+            product+= '<tr>';
+            product+= '<td colspan="3">'+value.name+'</td>';
+            product+= '<td class="text-end"><button type="button" class="btn btn-danger btn-sm">Delete Product</button></td>';
+            product+= '</tr>';
+            product+= '<tr>';
+            product+= '<td colspan="4">';
+            product+= '<table class="table table-borderless table-sm">';
+            product+= '<tr>';
+            product+= '<th>Product Id</th>';
+            product+= '<th>Characteristics</th>';
+            product+= '<th>Description</th>';
+            product+= '<th class="d-flex justify-content-end">Price</th>';
+            product+= '</tr>';
+            product+= '<tr>';
+            product+= '<td><span class="text-primary">'+value.id+'</span></td>';
+            product+= '<td>'+value.Characteristics+'</td>';
+            product+= '<td>'+value.description+'</td>';
+            product+= '<td class="d-flex justify-content-end"><input type="text" readonly value="$'+value.price+'" /></td>';
+            product+= '</tr>';
+            product+= '</table>';
+            product+= '</td>';
+            product+= '</tr>';
+            product+= '<tr>';
+            product+= '<td>';
+            product+= '<table class="table table-borderless table-sm">';
+            product+= '<tr>';
+            product+= '<th rowspan="2">';
+            product+= '<img width="50px" src="'+value.img+'" />';
+            product+= '<img width="50px" src="'+value.img+'" />';
+            product+= '<img width="50px" src="'+value.img+'" />';
+            product+= '</th>';
+            product+= '<th>1 click Url</th>';
+            product+= '</tr>';
+            product+= '<tr>';
+            product+= '<th><a href="#">'+value.url+'</a></th>';
+            product+= '</tr>';
+            product+= '</table>';
+            product+= '</tr>';
+            product+= '</table>';
+            product+= '</td>';
+            product+= '</tr>';
+            $('#my-data').append(product);
+        })
+        $(".open").on("click", function () {
+          var id = ($(this).attr('id').split('-'))[1];
+          $("#expand-"+id).show();
+          $("#open-"+id).hide();
+          $("#close-"+id).show();
+          $("#open-"+id).parent().addClass("active-row");
+        });
+        $(".close").on("click", function () {
+          var id = ($(this).attr('id').split('-'))[1];
+          $("#expand-"+id).hide();
+          $("#close-"+id).hide();          
+          $("#open-"+id).show();
+          $("#open-"+id).parent().removeClass("active-row");
+        });
+      });
+    </script>
+  </body>
+</html>
